@@ -24,17 +24,24 @@ if ($num > 0) {
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $post_item = array(
-            'ilan_id' => $ilan_id,
-            'ilan_tip' => $ilan_tip,
-            'nereden' => $nereden,
-            'nereye' => $nereye,
-            'plaka' => $plaka,
-            'birlikte' => $birlikte,
-            'kisi_sayisi' => $kisi_sayisi,
-            'esya_tipi' => $esya_tipi,
-            'tarih' => $tarih,
-            'saat' => $saat,
-            'aciklama' => $aciklama,
+            'ad' => $ad,
+            'soyad' => $soyad,
+            'email' => $email,
+            'telefon' => $telefon,
+            'parola' => $parola,
+            'users_id' => array(
+                array(
+                    'ilan_id' => $ilan_id,
+                    'ilan_tip' => $ilan_tip,
+                    'nereden' => $nereden,
+                    'nereye' => $nereye,
+                    'plaka' => $plaka,
+                    'birlikte' => $birlikte,
+                    'kisi_sayisi' => $kisi_sayisi,
+                    'esya_tipi' => $esya_tipi,
+                    'tarih' => $tarih
+                )
+            )
         );
         array_push($pos_arr['data'], $post_item);
     }

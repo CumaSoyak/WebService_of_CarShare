@@ -24,7 +24,8 @@ class Post{
         }
         //Get Posts
         public function read(){
-            $query="SELECT ilan_id,ilan_tip,nereden,nereye,plaka,birlikte,kisi_sayisi,esya_tipi,tarih,saat,aciklama FROM  ilanlar";
+            $query="SELECT u.users_id,u.ad,u.soyad,u.email,u.telefon,u.parola ,i.ilan_id,parent_user_id,i.ilan_tip,
+       i.nereden,i.nereye,i.plaka,i.birlikte,i.kisi_sayisi FROM users u,ilanlar i WHERE u.users_id=i.parent_user_id ";
 
             $stmt=$this->conn->prepare($query);
 
